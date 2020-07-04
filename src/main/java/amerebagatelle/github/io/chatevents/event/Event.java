@@ -32,11 +32,11 @@ public class Event {
                 break;
 
             case "equalsUsername":
-                if(message.substring(2, message.indexOf(">")-1).equals(matches)) respondToEvent(message);
+                if(message.contains(">") && message.substring(1, message.indexOf(">")).equals(matches)) respondToEvent(message);
                 break;
 
             case "equalsIgnoreUsername":
-                if(message.substring(message.indexOf(">")+2).equals(matches))
+                if(message.contains(">") && message.substring(message.indexOf(">")+2).equals(matches)) respondToEvent(message);
                 break;
 
             case "regex":
