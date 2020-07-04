@@ -3,6 +3,7 @@
   "package": "amerebagatelle.github.io.chatevents.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "NarratorManagerFake"
   ],
   "client": [
     "ChatHudMixin"

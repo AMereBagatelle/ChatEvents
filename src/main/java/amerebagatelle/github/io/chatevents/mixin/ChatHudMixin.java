@@ -21,6 +21,6 @@ public class ChatHudMixin {
 
     @Inject(method = "addMessage(Lnet/minecraft/text/Text;I)V", at = @At("TAIL"))
     public void onChatMessage(Text message, int messageId, CallbackInfo ci) {
-        if(!message.getString().startsWith(String.format("<%s>", client.player.getName().asString()))) EventManager.INSTANCE.processChatMessage(message.getString());
+        if(message.getString().startsWith(String.format("<%s>", client.player.getName().asString()))) EventManager.INSTANCE.processChatMessage(message.getString());
     }
 }
