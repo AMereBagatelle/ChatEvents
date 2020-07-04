@@ -31,8 +31,17 @@ public class Event {
                 if(message.equals(matches)) respondToEvent(message);
                 break;
 
+            case "equalsUsername":
+                if(message.substring(2, message.indexOf(">")-1).equals(matches)) respondToEvent(message);
+                break;
+
+            case "equalsIgnoreUsername":
+                if(message.substring(message.indexOf(">")+2).equals(matches))
+                break;
+
             case "regex":
                 if(message.matches(matches)) respondToEvent(message);
+                break;
 
             case "all":
                 respondToEvent(message);
@@ -50,7 +59,7 @@ public class Event {
                 mc.world.playSound(mc.player.getBlockPos(), SoundEvents.BLOCK_NOTE_BLOCK_PLING, SoundCategory.MASTER, 1.0f, 0.5f, false);
                 break;
 
-            case "notify":
+            case "notify": //TODO: Stub
                 break;
 
             case "narrate":
