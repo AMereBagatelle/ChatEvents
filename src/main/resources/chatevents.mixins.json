@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "amerebagatelle.github.io.chatevents.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+    "ChatHudMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
