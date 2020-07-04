@@ -28,6 +28,9 @@ public class Event {
                 if(message.equals(matches)) respondToEvent();
                 break;
 
+            case "regex":
+                if(message.matches(matches)) respondToEvent();
+
             case "all":
                 respondToEvent();
         }
