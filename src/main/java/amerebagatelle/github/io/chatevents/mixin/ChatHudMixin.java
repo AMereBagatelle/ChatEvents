@@ -3,6 +3,7 @@ package amerebagatelle.github.io.chatevents.mixin;
 import amerebagatelle.github.io.chatevents.event.EventManager;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
@@ -21,6 +22,6 @@ public class ChatHudMixin {
 
     @Inject(method = "addMessage(Lnet/minecraft/text/Text;I)V", at = @At("TAIL"))
     public void onChatMessage(Text message, int messageId, CallbackInfo ci) {
-        if(message.getString().startsWith(String.format("<%s>", client.player.getName().asString()))) EventManager.INSTANCE.processChatMessage(message.getString());
+        if(!message.getString().startsWith(String.format("<%s>", client.player.getName().asString())) || FabricLoader.getInstance().isDevelopmentEnvironment()) EventManager.INSTANCE.processChatMessage(message.getString());
     }
 }
