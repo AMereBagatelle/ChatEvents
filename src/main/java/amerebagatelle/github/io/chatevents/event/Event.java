@@ -16,7 +16,7 @@ public class Event {
     public String mode;
     public String responseType;
     public String[] responses;
-    private Random random = new Random();
+    private final Random random = new Random();
 
     public void processEvent(String message) {
         switch (mode) {
@@ -27,6 +27,9 @@ public class Event {
             case "equals":
                 if(message.equals(matches)) respondToEvent();
                 break;
+
+            case "all":
+                respondToEvent();
         }
     }
 
@@ -38,7 +41,7 @@ public class Event {
                 break;
 
             case "sound":
-                mc.world.playSound(mc.player.getBlockPos(), SoundEvents.BLOCK_NOTE_BLOCK_CHIME, SoundCategory.MASTER, 1.0f, 0.5f, false);
+                mc.world.playSound(mc.player.getBlockPos(), SoundEvents.BLOCK_NOTE_BLOCK_PLING, SoundCategory.MASTER, 1.0f, 0.5f, false);
         }
     }
 }
